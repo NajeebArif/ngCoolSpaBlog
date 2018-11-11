@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UserCredentials } from './login/UserCredentials';
+import { UserCredentials } from '../modelClasses/UserCredentials';
+import { UrlRepositories } from './UrlRepositories';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class AuthenticationServiceService {
 
   authenticated: Boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private urlRepo: UrlRepositories) { }
 
   authenticate(credentials: UserCredentials, callback){
 
@@ -17,7 +18,8 @@ export class AuthenticationServiceService {
       authorization : 'Basic '+btoa(credentials.username +':'+credentials.password)
     }: {});
 
-    this.http.get('http://localhost:8080/user',{headers:authHeader}).subscribe(response=>{
+    const loginUrl = this.urlRepo.getLoginUrl();
+    this.http.get(loginUrl,{headers:authHeader}).subscribe(response=>{
       if(response['name']){
         this.authenticated = true;
       }else{

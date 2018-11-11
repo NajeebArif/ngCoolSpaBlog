@@ -8,7 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import {FormsModule} from '@Angular/forms';
-import { AuthenticationServiceService } from './authentication-service.service';
+import { AuthenticationServiceService } from './services/authentication-service.service';
+import { UrlRepositories } from './services/UrlRepositories';
 
 const route: Routes = [
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -29,7 +30,7 @@ const route: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthenticationServiceService],
+  providers: [AuthenticationServiceService,UrlRepositories],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
