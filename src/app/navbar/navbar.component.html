@@ -1,0 +1,5 @@
+<ul class="nav nav-pills border">
+  <li class="nav-link"><a routerLink="/home">Home</a></li>
+  <li class="nav-link" *ngIf="!isAuthenticated()"><a routerLink="/login">Login</a></li>
+  <li class="nav-link" *ngIf="isAuthenticated()" ><a (click)="logout()">Logout</a></li>
+</ul>

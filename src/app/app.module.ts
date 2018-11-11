@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {FormsModule} from '@Angular/forms';
 import { AuthenticationServiceService } from './services/authentication-service.service';
 import { UrlRepositories } from './services/UrlRepositories';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const route: Routes = [
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -21,7 +22,8 @@ const route: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     RouterModule.forRoot(route),

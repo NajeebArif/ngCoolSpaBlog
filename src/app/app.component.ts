@@ -23,12 +23,5 @@ export class AppComponent {
   
   }
 
-  logout(){
-    const url:string = this.urlRepo.getLogoutUrl();
-    this.http.get(url).subscribe(data=>{
-      console.log(data);
-      this.authenticator.authenticated=false;
-      this.router.navigateByUrl('/login');
-    });
-  }
+  
 }
