@@ -1,6 +1,11 @@
 <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Hello</h5>
-    <p class="card-text">WOrld</p>
+  <div class="card-body" [hidden]="!authenticated()">
+    <h5 class="card-title">Welcome to the world of blogs!</h5>
+    <p class="card-text">{{greeting.content}}</p>
   </div>
+
+  <div class="card-body" [hidden]="authenticated()">
+      <h5 class="card-title">Welcome</h5>
+      <p class="card-text">Please Login to view our blogs.</p>
+    </div>
 </div>
