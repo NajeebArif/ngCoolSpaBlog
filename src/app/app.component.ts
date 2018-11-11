@@ -12,6 +12,10 @@ export class AppComponent {
   greeting  = {};
 
   constructor(private http: HttpClient){
-    http.get('http://localhost:8080/api').subscribe(data=> {console.log(data);this.greeting = data});
+    // http.get('http://localhost:8080/api').subscribe(data=> {console.log(data);this.greeting = data});
+  }
+
+  logout(){
+    
   }
 }
